@@ -62,6 +62,7 @@ function loadContent(page) {
     content.innerHTML = `
       <div class="card">
         <h3>Email Password Reset</h3>
+<hr>
         <p><b>To:</b> it-support@brac.net</p>
         <p><b>CC:</b> mf.email@brac.net</p>
         <div style="margin-left: 34px;">
@@ -87,8 +88,7 @@ Branch Code (MF):
 Area Name (MF):
 Region Name (MF):
 BRAC SIM Number:
-Personal SIM Number (only if doesn’t have BRAC SIM):
-        </pre>
+Personal SIM Number (only if doesn’t have BRAC SIM):</pre>
         <button class="copy-btn" onclick="copyEmail()">Copy Email Body</button>
       </div>
     `;

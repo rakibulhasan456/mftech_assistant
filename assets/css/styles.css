@@ -167,9 +167,47 @@ body.dark-mode .fancy-btn:hover {
 }
 
 #emailBody {
-  background-color: #84837c;
+  background-color: #ebebeb;
   padding: 10px;
   border-radius: 6px;
   white-space: pre-wrap;
+  color: black;
+}
+
+.dark-mode #emailBody {
+  background-color: #404040;
+  padding: 10px;
+  border-radius: 6px;
+  white-space: pre-wrap;
+  color: #ffffff;
+}
+
+/* Home Text */
+
+.home-text h1 {
+  text-align: center;
+  font-weight: bold;
+  font-size: 90px;
+  color: #e50088;
+}
+
+.home-text h2 {
+  text-align: center;
+  font-weight: bold;
+  font-size: 40px;
+  letter-spacing: 8px;
+}
+
+.home-text h4 {
+  text-align: center;
+  font-weight: bold;
+  font-size: 30px;
+  margin-top: 50px;
+}
+
+.home-text h5 {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 15px;
 }
 
