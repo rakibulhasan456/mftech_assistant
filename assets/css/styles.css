@@ -184,30 +184,42 @@ body.dark-mode .fancy-btn:hover {
 
 /* Home Text */
 
-.home-text h1 {
+.home-wrap {
   text-align: center;
-  font-weight: bold;
-  font-size: 90px;
-  color: #e50088;
+  margin-top: 150px;
+  font-family: inherit;
 }
 
-.home-text h2 {
-  text-align: center;
-  font-weight: bold;
+.home-h4 {
+  font-weight: 700;
+  font-size: 30px;
+  margin: 0 0 10px 0;
+}
+
+.home-h1 {
+  font-weight: 600;
+  font-size: 90px;
+  color: #E50088;
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+.home-h2 {
+  font-weight: 700;
   font-size: 40px;
   letter-spacing: 8px;
+  margin: 0;
 }
 
-.home-text h4 {
-  text-align: center;
-  font-weight: bold;
-  font-size: 30px;
+.home-h5 {
   margin-top: 50px;
+  font-size: 15px;
+  font-weight: 400;
+  opacity: 0.9;
 }
 
-.home-text h5 {
-  text-align: center;
-  margin-top: 20px;
-  font-size: 15px;
+.card h3 {
+  color: #E50088;
+  font-weight: bold;
 }
 
