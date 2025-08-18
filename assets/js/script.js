@@ -5,12 +5,12 @@ const closeBtn = document.querySelector(".closebtn");
 
 // Open sidebar
 menuBtn.addEventListener("click", () => {
-  sidebar.style.width = "260px";
+  sidebar.classList.add("open");
 });
 
 // Close sidebar
 closeBtn.addEventListener("click", () => {
-  sidebar.style.width = "0";
+  sidebar.classList.remove("open");
 });
 
 // Sidebar links: load content & close sidebar
@@ -19,17 +19,18 @@ sidebar.querySelectorAll("a[data-section]").forEach(link => {
     e.preventDefault();
     const section = link.getAttribute("data-section");
     loadContent(section);
-    sidebar.style.width = "0"; // close sidebar after click
+    sidebar.classList.remove("open"); // close sidebar after click
   });
 });
 
 // Close sidebar when clicking outside
 document.addEventListener("click", (e) => {
-  const sidebarOpen = sidebar.style.width === "260px";
+  const sidebarOpen = sidebar.classList.contains("open");
   if (sidebarOpen && !sidebar.contains(e.target) && e.target !== menuBtn) {
-    sidebar.style.width = "0";
+    sidebar.classList.remove("open");
   }
 });
+
 
 // Dark/Light Mode
 const modeToggle = document.getElementById("modeToggle");
