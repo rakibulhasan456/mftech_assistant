@@ -200,6 +200,91 @@ else if (page === "renameEmail") {
     </div>
   `;
 }
+    else if (page === "addToGroup") {
+  content.innerHTML = `
+    <div class="card">
+      <h3>Add to Email Group</h3>
+      <hr>
+      <p><b>To:</b> it-support@brac.net</p>
+      <p><b>CC:</b> mf.email@brac.net, User mail ID, Staff’s Supervisor mail ID, Yours’s Supervisor mail ID</p>
+      
+      <p><b>Subject:</b> Request to add mentioned email to specific email group</p>
+      <hr>
+      <p><b>Email Body:</b></p>
+      <pre id="groupEmailBody">
+Dear Concern:
+Greetings! Please add this below mentioned Email Id to necessary email groups as the email doesn't receive all operational emails & circulars.
+
+Email Id: xyz@brac.net
+Pin:
+Grade:
+
+Thanks in advance!</pre>
+      <button class="copy-btn" onclick="copyCreateEmailBody(this, 'groupEmailBody')">Copy Email Body</button>
+    </div>
+  `;
+}
+    else if (page === "leaveBackup") {
+  content.innerHTML = `
+    <div class="card">
+      <h3>Leave Backup Email</h3>
+      <hr>
+      <p><b>To:</b> All Field Colleagues</p>
+      <p><b>Cc:</b> parvez.mosaraf@brac.net, nayan.das@brac.net, Nearest Technology Officers</p>
+      <p><b>Subject:</b> Backup Support During My Leave</p>
+      <hr>
+
+      <div id="leaveBackupBody">
+        <p>Dear Respected Bhai & Apa,</p>
+        <p>Greetings from MF Technology <b><i>Narail</i></b> Region!</p>
+
+        <p>
+          Please be informed that I will be on leave on 
+          <b><i>02/05/2025 (or alternatively, from 27 to 29 July 2025 for 2 days)</i></b>.  
+          During my absence, the following Technology Officers will remain as my backup support:
+        </p>
+
+        <table style="border-collapse: collapse; width: 100%; margin-top:10px; border:1px solid black;">
+          <tr>
+            <th style="border:1px solid black; padding:6px; text-align:left;">Remote support</th>
+            <th style="border:1px solid black; padding:6px; text-align:left;">Emergency Physical/ Remote support</th>
+          </tr>
+          <tr>
+            <td style="border:1px solid black; padding:6px;">
+              <b>Name:</b> Nayan Kumar Das<br>
+              <b>Email:</b> nayan.das@brac.net<br>
+              <b>Phone:</b> 01713-350478<br>
+              <b>Base:</b> BRAC-HO
+            </td>
+            <td style="border:1px solid black; padding:6px;">
+              <b>Name:</b> <br>
+              <b>Email:</b> <br>
+              <b>Phone:</b> <br>
+              <b>Base:</b> 
+            </td>
+          </tr>
+        </table>
+
+        <p style="margin-top:15px;">
+          <b>Note:</b><br>
+          Kindly register any complaints via Trendx CRM. Our respectable personnel will contact you to resolve any issues.
+        </p>
+
+        <p><i>If there is an emergency feel free to contact me. I will be available over the phone and on WhatsApp. (Optional)</i></p>
+
+        <p>
+          I will be available for all kinds of support after leaving. Thanks for your patience & cooperation.
+        </p>
+
+        <p>Best regards,<br>[Your Information]</p>
+      </div>
+
+      <div class="copy-button-container">
+        <button class="copy-btn" onclick="copyleaveBackupEmail()">Copy Email Body</button>
+      </div>
+    </div>
+  `;
+}
 }
 
 // Copy Email Function
@@ -264,6 +349,52 @@ function copyrenameEmail() {
   }
   selection.removeAllRanges();
 }
+
+// copy add email id to specific group
+
+function copyCreateEmailBody(btn, targetId) {
+  const emailBody = document.getElementById(targetId);
+  if (!emailBody) return;
+
+  const range = document.createRange();
+  range.selectNode(emailBody);
+  const selection = window.getSelection();
+  selection.removeAllRanges();
+  selection.addRange(range);
+
+  try {
+    document.execCommand("copy");
+    btn.textContent = "Copied!";
+    setTimeout(() => btn.textContent = "Copy Email Body", 2000);
+  } catch (err) {
+    console.error("Copy failed:", err);
+  }
+
+  selection.removeAllRanges();
+}
+
+// copy backup email
+
+function copyleaveBackupEmail() {
+  const range = document.createRange();
+  const emailBody = document.getElementById("leaveBackupBody");
+  range.selectNode(emailBody);
+  const selection = window.getSelection();
+  selection.removeAllRanges();
+  selection.addRange(range);
+
+  try {
+    document.execCommand("copy");
+    const btn = document.querySelector("button[onclick='copyleaveBackupEmail()']");
+    btn.textContent = "Copied!";
+    setTimeout(() => btn.textContent = "Copy Email Body", 2000);
+  } catch (err) {
+    console.error("Copy failed:", err);
+  }
+  selection.removeAllRanges();
+}
+
+
 
 document.addEventListener("DOMContentLoaded", () => {
   loadContent("home");

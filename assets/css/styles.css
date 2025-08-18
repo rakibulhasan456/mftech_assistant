@@ -132,6 +132,7 @@ body {
   border-radius: 6px;
   cursor: pointer;
   transition: background 0.3s;
+  width: 100%;
 }
 
 .copy-btn:hover {
@@ -175,6 +176,22 @@ body.dark-mode .fancy-btn:hover {
 }
 
 .dark-mode #emailBody {
+  background-color: #404040;
+  padding: 10px;
+  border-radius: 6px;
+  white-space: pre-wrap;
+  color: #ffffff;
+}
+
+#groupEmailBody {
+  background-color: #ebebeb;
+  padding: 10px;
+  border-radius: 6px;
+  white-space: pre-wrap;
+  color: black;
+}
+
+.dark-mode #groupEmailBody {
   background-color: #404040;
   padding: 10px;
   border-radius: 6px;
