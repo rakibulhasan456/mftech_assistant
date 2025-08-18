@@ -64,22 +64,22 @@ function loadContent(page) {
               width="100%" height="600px" style="border:none;"></iframe>
     `;
   } else if (page === "emailReset") {
-    content.innerHTML = `
-      <div class="card">
-        <h3>Email Password Reset</h3>
-<hr>
-        <p><b>To:</b> it-support@brac.net</p>
-        <p><b>CC:</b> mf.email@brac.net</p>
-        <div style="margin-left: 34px;">
-          <p>User mail ID</p>
-          <p>Staff’s Supervisor mail ID</p>
-          <p>Yours’s Supervisor mail ID</p>
-        </div>
-        
-        <p><b>Subject:</b> Request to Reset Mail ID Password</p>
-<hr>
-        <p><b>Email Body:</b></p>
-        <pre id="emailBody">
+  content.innerHTML = `
+    <div class="card">
+      <h3>Email Password Reset</h3>
+      <hr>
+      <p><b>To:</b> it-support@brac.net</p>
+      <p><b>CC:</b> mf.email@brac.net</p>
+      <div style="margin-left: 34px;">
+        <p>User mail ID</p>
+        <p>Staff’s Supervisor mail ID</p>
+        <p>Yours’s Supervisor mail ID</p>
+      </div>
+      
+      <p><b>Subject:</b> Request to Reset Mail ID Password</p>
+      <hr>
+      <p><b>Email Body:</b></p>
+      <pre id="emailBody">
 Dear IT support:
 Hope this email finds you well.
 Please reset xyz@brac.net mail ID’s password.
@@ -94,10 +94,10 @@ Area Name (MF):
 Region Name (MF):
 BRAC SIM Number:
 Personal SIM Number (only if doesn’t have BRAC SIM):</pre>
-        <button class="copy-btn" onclick="copyEmail()">Copy Email Body</button>
-      </div>
-    `;
-  }
+      <button class="copy-btn" onclick="copyCreateEmailBody(this, 'emailBody')">Copy Email Body</button>
+    </div>
+  `;
+}
     else if (page === "createEmail") {
   content.innerHTML = `
     <div class="card">
@@ -132,7 +132,7 @@ Personal SIM Number (only if doesn’t have BRAC SIM):</pre>
             </thead>
             <tbody>
               <tr>
-                <td style="border: 1px solid black;">1.</td>
+                <td style="border: 1px solid black;">1</td>
                 <td style="border: 1px solid black;">Example</td>
                 <td style="border: 1px solid black;">00000</td>
                 <td style="border: 1px solid black;">AAM (Progoti)</td>
@@ -203,13 +203,25 @@ else if (page === "renameEmail") {
 }
 
 // Copy Email Function
-function copyEmail() {
-  const text = document.getElementById("emailBody").innerText;
-  navigator.clipboard.writeText(text).then(() => {
-    const btn = document.querySelector(".copy-btn");
+function copyCreateEmailBody(btn, targetId) {
+  const emailBody = document.getElementById(targetId);
+  if (!emailBody) return;
+
+  const range = document.createRange();
+  range.selectNode(emailBody);
+  const selection = window.getSelection();
+  selection.removeAllRanges();
+  selection.addRange(range);
+
+  try {
+    document.execCommand("copy");
     btn.textContent = "Copied!";
     setTimeout(() => btn.textContent = "Copy Email Body", 2000);
-  }).catch(err => console.error("Copy failed:", err));
+  } catch (err) {
+    console.error("Copy failed:", err);
+  }
+
+  selection.removeAllRanges();
 }
 
 
