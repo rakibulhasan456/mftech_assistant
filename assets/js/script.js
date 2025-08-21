@@ -95,7 +95,7 @@ Area Name (MF):
 Region Name (MF):
 BRAC SIM Number:
 Personal SIM Number (only if doesn’t have BRAC SIM):</pre>
-      <button class="copy-btn" onclick="copyCreateEmailBody(this, 'emailBody')">Copy Email Body</button>
+      <button class="copy-btn" onclick="copyTextById('emailBody', this)">Copy Email Body</button>
     </div>
   `;
 }
@@ -221,7 +221,7 @@ Pin:
 Grade:
 
 Thanks in advance!</pre>
-      <button class="copy-btn" onclick="copyCreateEmailBody(this, 'groupEmailBody')">Copy Email Body</button>
+      <button class="copy-btn" onclick="copyTextById('groupEmailBody', this)">Copy Email Body</button>
     </div>
   `;
 }
@@ -286,30 +286,121 @@ Thanks in advance!</pre>
     </div>
   `;
 }
+    else if (page === "complainEmail") {
+  content.innerHTML = `
+    <div class="card">
+      <h3>Laptop Complaint Email</h3>
+      <hr>
+      <p><b>To:</b> Corporate.support@1000fix.com</p>
+      <p><b>CC:</b> related stockholders, supervisor</p>
+      <p><b>Subject:</b> Urgent: Request to Laptop Warranty Support (Dell Latitude 3520 – 9SWRFG3)</p>
+      <hr>
+      <p><b>Email Body:</b></p>
+
+      <div id="complainEmailBody">
+        <p>Dear Concern,<br>
+        Greetings!<br><br>
+        Please be informed that the Dell Latitude 3520 laptop’s display unit is problematic. Detailed information is below.</p>
+
+        <div style="overflow-x:auto;">
+          <table cellspacing="0" cellpadding="6"
+                 style="border-collapse: collapse; font-family: Arial, sans-serif; font-size:13px; border:1px solid black;">
+            <tbody>
+              <tr>
+                <td colspan="2" style="border:1px solid black; padding:6px; text-align:center; font-weight:bold;">Microfinance</td>
+              </tr>
+              <tr>
+                <td colspan="2" style="border:1px solid black; padding:6px; text-align:center; font-weight:bold;">Technology Unit</td>
+              </tr>
+              <tr>
+                <td colspan="2" style="border:1px solid black; padding:6px; text-align:center; font-weight:bold;">Laptop Complain Sheet</td>
+              </tr>
+
+              <tr>
+                <td style="border:1px solid black; padding:6px; width:50%;">Complain Date:</td>
+                <td style="border:1px solid black; padding:6px;">07/07/2024</td>
+              </tr>
+              <tr>
+                <td style="border:1px solid black; padding:6px; width:50%;">Region Name:</td>
+                <td style="border:1px solid black; padding:6px;">Gopalgonj-2</td>
+              </tr>
+              <tr>
+                <td style="border:1px solid black; padding:6px; width:50%;">User Name:</td>
+                <td style="border:1px solid black; padding:6px;">Bkash Das</td>
+              </tr>
+              <tr>
+                <td style="border:1px solid black; padding:6px; width:50%;">User Mobile No:</td>
+                <td style="border:1px solid black; padding:6px;">01798485601</td>
+              </tr>
+              <tr>
+                <td style="border:1px solid black; padding:6px; width:50%;">User’s current Address:</td>
+                <td style="border:1px solid black; padding:6px;">
+                  BRAC Muksedpur Area Office, Muksedpur, Gopalgonj
+                </td>
+              </tr>
+              <tr>
+                <td style="border:1px solid black; padding:6px; width:50%;">User BRAC E-mail Address:</td>
+                <td style="border:1px solid black; padding:6px;">bao.muksedpur@brac.net</td>
+              </tr>
+              <tr>
+                <td style="border:1px solid black; padding:6px; width:50%;">Laptop SL #</td>
+                <td style="border:1px solid black; padding:6px;">Dell Latitude 3520- 9SWRFG3</td>
+              </tr>
+              <tr>
+                <td style="border:1px solid black; padding:6px; width:50%;">Problem Description:</td>
+                <td style="border:1px solid black; padding:6px;">Display Problematic</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p style="margin-top:12px;">Please see the attachment. Please take initiative as soon as possible.</p>
+      </div>
+
+      <button class="copy-btn" onclick="copyComplainEmail()">Copy Email Body</button>
+    </div>
+  `;
 }
+    else if (page === "whatsappDcsSupportFormat") { 
+  content.innerHTML = `
+    <div class="card">
+      <h3>Whatsapp DCS Support Format</h3> 
+      <hr> 
+      <p><b>Message Body:</b></p> 
+      <pre id="whatsappDcsBody">নিন্মলিখিত বিবরণ দিয়ে সমস্যা তুলে ধরতে হবে:
+- শাখা কোড: 
+- সিডিও/সিও পিন/ বিএম পিন:
+- ⁠ভিও কোড (প্রযোজ্য ক্ষেত্রে):
+- ⁠সদস্য নম্বর:
+- ⁠সদস্যের নাম:
+- সমস্যার স্ক্রিনশট: 
+- সমস্যার বিস্তারিত:
 
-// Copy Email Function
-function copyCreateEmailBody(btn, targetId) {
-  const emailBody = document.getElementById(targetId);
-  if (!emailBody) return;
+Thank you.</pre> 
+      <button class="copy-btn" onclick="copyTextById('whatsappDcsBody', this)">Copy Message Body</button>
 
-  const range = document.createRange();
-  range.selectNode(emailBody);
-  const selection = window.getSelection();
-  selection.removeAllRanges();
-  selection.addRange(range);
-
-  try {
-    document.execCommand("copy");
-    btn.textContent = "Copied!";
-    setTimeout(() => btn.textContent = "Copy Email Body", 2000);
-  } catch (err) {
-    console.error("Copy failed:", err);
-  }
-
-  selection.removeAllRanges();
+    </div>
+  `;
 }
+    else if (page === "bandwidthUpgradation") { 
+  content.innerHTML = `
+    <div class="card">
+      <h3>Bandwidth Upgradation Request Format</h3> 
+      <hr> 
+      <p><b>Message Body:</b></p> 
+      <pre id="bandwidthUpgradationBody">Branch Code:
+Connectivity Type (Fiber/Radio):
+Total Staff :
+Number of Devices:
+Current Bandwidth:
+Required Bandwidth:
+Upload Image: Current BW Screenshot</pre> 
+      <button class="copy-btn" onclick="copyTextById('bandwidthUpgradationBody', this)">Copy Message Body</button>
 
+    </div>
+  `;
+}
+}
 
 // Copy create email function
 
@@ -395,6 +486,53 @@ function copyleaveBackupEmail() {
   selection.removeAllRanges();
 }
 
+// Copy complain email
+
+function copyComplainEmail() {
+  const range = document.createRange();
+  const emailBody = document.getElementById("complainEmailBody");
+  range.selectNode(emailBody);
+  const selection = window.getSelection();
+  selection.removeAllRanges();
+  selection.addRange(range);
+
+  try {
+    document.execCommand("copy");
+    const btn = document.querySelector("button[onclick='copyComplainEmail()']");
+    btn.textContent = "Copied!";
+    setTimeout(() => btn.textContent = "Copy Email Body", 2000);
+  } catch (err) {
+    console.error("Copy failed:", err);
+  }
+  selection.removeAllRanges();
+}
+
+// Universal copy text button
+function copyTextById(elementId, btn) {
+  const element = document.getElementById(elementId);
+  if (!element) return;
+
+  const text = element.innerText || element.textContent;
+
+  const textarea = document.createElement("textarea");
+  textarea.value = text;
+  document.body.appendChild(textarea);
+  textarea.select();
+  textarea.setSelectionRange(0, 99999);
+
+  try {
+    document.execCommand("copy");
+    if (btn) {
+      const originalText = btn.textContent;
+      btn.textContent = "Copied!";
+      setTimeout(() => btn.textContent = originalText, 2000);
+    }
+  } catch (err) {
+    console.error("Copy failed:", err);
+  }
+
+  document.body.removeChild(textarea);
+}
 
 
 document.addEventListener("DOMContentLoaded", () => {

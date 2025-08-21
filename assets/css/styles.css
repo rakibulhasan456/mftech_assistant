@@ -206,6 +206,38 @@ body.dark-mode .fancy-btn:hover {
   color: #ffffff;
 }
 
+#whatsappDcsBody {
+  background-color: #ebebeb;
+  padding: 10px;
+  border-radius: 6px;
+  white-space: pre-wrap;
+  color: black;
+}
+
+.dark-mode #whatsappDcsBody {
+  background-color: #404040;
+  padding: 10px;
+  border-radius: 6px;
+  white-space: pre-wrap;
+  color: #ffffff;
+}
+
+#bandwidthUpgradationBody {
+  background-color: #ebebeb;
+  padding: 10px;
+  border-radius: 6px;
+  white-space: pre-wrap;
+  color: black;
+}
+
+.dark-mode #bandwidthUpgradationBody {
+  background-color: #404040;
+  padding: 10px;
+  border-radius: 6px;
+  white-space: pre-wrap;
+  color: #ffffff;
+}
+
 /* Home Text */
 
 .home-wrap {
