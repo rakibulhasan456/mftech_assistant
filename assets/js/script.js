@@ -56,7 +56,7 @@ function loadContent(page) {
       <h4 class="home-h4">Welcome to</h4>
       <h1 class="home-h1">MFTech</h1>
       <h2 class="home-h2">ASSISTANT</h2>
-      <h5 class="home-h5">Find all your essential tools and shortcuts in the menu.</h5>
+      <h5 class="home-h5">Find all your essential shortcuts in the menu.</h5>
     </div>
   `;
   } else if (page === "staffInfo") {
@@ -436,7 +436,7 @@ We appreciate your prompt attention to this matter and look forward to a quick r
     else if (page === "about") {
   content.innerHTML = `
     <div class="card">
-      <h3>About MFTech Helper</h3>
+      <h3>About MFTech Assistant</h3>
       <hr>
       <p><b>App Version:</b> 1.0.0</p>
       <p><b>Changelog:</b></p>
