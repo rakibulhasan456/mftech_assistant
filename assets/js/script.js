@@ -55,8 +55,8 @@ function loadContent(page) {
     <div class="home-wrap">
       <h4 class="home-h4">Welcome to</h4>
       <h1 class="home-h1">MFTech</h1>
-      <h2 class="home-h2">HELPER</h2>
-      <h5 class="home-h5">Navigate to Menu for more shortcuts.</h5>
+      <h2 class="home-h2">ASSISTANT</h2>
+      <h5 class="home-h5">Find all your essential tools and shortcuts in the menu.</h5>
     </div>
   `;
   } else if (page === "staffInfo") {
@@ -397,6 +397,56 @@ Required Bandwidth:
 Upload Image: Current BW Screenshot</pre> 
       <button class="copy-btn" onclick="copyTextById('bandwidthUpgradationBody', this)">Copy Message Body</button>
 
+    </div>
+  `;
+}
+    else if (page === "resolutionCellularNetwork") {
+  content.innerHTML = `
+    <div class="card">
+      <h3>Request for Resolution of Cellular Network Issue</h3>
+      <hr>
+      <p><b>To:</b> chandana.roy@brac.net</p>
+      <p><b>CC:</b> monirul.islm@brac.net</p>
+      <div style="margin-left: 34px;">
+        <p>Relevant Management</p>
+        <p>Technology Focal </p>
+      </div>
+      
+      <p><b>Subject:</b> Request for Resolution of Cellular Network Issue (BRAC-Office_Name-Office_Code)</p>
+      <hr>
+      <p><b>Email Body:</b></p>
+      <pre id="emailBody">
+Dear Chandana Didi,
+
+Greetings!
+
+I am writing to bring to your immediate attention the issue of poor cellular network signals (both voice and data) at our <b>BRAC Naihati office</b>. (Problem Short Summary)
+
+Office Location:
+BRAC-Naihati Office, Location: ........ 
+Branch Code: 8890
+
+This connectivity issue is impacting our daily operations and causing significant disruption. We kindly request that you take the necessary steps to resolve this matter as soon as possible.
+
+We appreciate your prompt attention to this matter and look forward to a quick resolution.</pre>
+      <button class="copy-btn" onclick="copyTextById('emailBody', this)">Copy Email Body</button>
+    </div>
+  `;
+}
+    else if (page === "about") {
+  content.innerHTML = `
+    <div class="card">
+      <h3>About MFTech Helper</h3>
+      <hr>
+      <p><b>App Version:</b> 1.0.0</p>
+      <p><b>Changelog:</b></p>
+      <p>26 August 2025</p>
+      <ul style="margin-left: 20px;">
+<li>v1.0.0 – Initial release.</li>
+        <li>v1.0.0 – Added Staff Info section.</li>
+        <li>v1.0.0 – Added several email format.</li>
+        <li>v1.0.0 – Added frequently used message format.</li>
+      </ul>
     </div>
   `;
 }

@@ -279,3 +279,11 @@ body.dark-mode .fancy-btn:hover {
   font-weight: bold;
 }
 
+/* Push About section to the bottom with a gap */
+
+.sidebar-bottom {
+  margin-top: 40px;
+  border-top: 1px solid #ccc;
+  padding-top: 10px;
+}
+
