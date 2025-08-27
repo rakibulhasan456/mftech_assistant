@@ -287,3 +287,16 @@ body.dark-mode .fancy-btn:hover {
   /*padding-top: 10px;*/
 }
 
+/* Warning */
+
+.p1 {
+  background: yellow;
+  color: black;
+  font-weight: bold;
+  font-size: 14px;
+  display: inline-block;
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+

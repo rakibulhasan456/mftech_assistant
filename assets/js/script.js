@@ -406,8 +406,9 @@ Upload Image: Current BW Screenshot</pre>
       <h3>Request for Resolution of Cellular Network Issue</h3>
       <hr>
       <p><b>To:</b> chandana.roy@brac.net</p>
-      <p><b>CC:</b> monirul.islm@brac.net</p>
+      <p><b>CC:</b> walid.hashem@brac.net</p>
       <div style="margin-left: 34px;">
+<p>monirul.islm@brac.net</p>
         <p>Relevant Management</p>
         <p>Technology Focal </p>
       </div>
@@ -420,7 +421,7 @@ Dear Chandana Didi,
 
 Greetings!
 
-I am writing to bring to your immediate attention the issue of poor cellular network signals (both voice and data) at our <b>BRAC Naihati office</b>. (Problem Short Summary)
+I am writing to bring to your immediate attention the issue of poor cellular network signals (both voice and data) at our BRAC Naihati office. (Problem Short Summary)
 
 Office Location:
 BRAC-Naihati Office, Location: ........ 
@@ -429,6 +430,8 @@ Branch Code: 8890
 This connectivity issue is impacting our daily operations and causing significant disruption. We kindly request that you take the necessary steps to resolve this matter as soon as possible.
 
 We appreciate your prompt attention to this matter and look forward to a quick resolution.</pre>
+
+<span class="p1">Please remember to attach the filled Complaint Form (Word Copy) before sending the email.</span>
       <button class="copy-btn" onclick="copyTextById('emailBody', this)">Copy Email Body</button>
     </div>
   `;
