@@ -453,6 +453,9 @@ We appreciate your prompt attention to this matter and look forward to a quick r
     </div>
   `;
 }
+    else if (page === "contacts") {
+  content.innerHTML = loadContacts();
+}
 }
 
 // Copy create email function

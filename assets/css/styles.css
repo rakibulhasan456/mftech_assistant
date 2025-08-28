@@ -300,3 +300,35 @@ body.dark-mode .fancy-btn:hover {
   margin-bottom: 20px;
 }
 
+/* Contacts */
+
+/* Zebra stripes */
+
+tbody tr:nth-child(odd) {
+  background: #fafafa;
+}
+
+tbody tr:nth-child(even) {
+  background: #f0f0f0;
+}
+
+tbody tr:hover {
+  background: inherit !important;
+}
+
+/* Contacts copy buttons */
+
+.contact-copy {
+  color: #000;
+  text-decoration: underline;
+  cursor: pointer;
+  padding: 0;
+}
+
+/* Copied! feedback */
+
+.contact-copy.copied {
+  color: green;
+  font-weight: bold;
+}
+
