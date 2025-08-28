@@ -25,28 +25,28 @@ function loadContacts() {
   ];
 
   let rows = contactsData.map((c, index) => `
-    <tr style="background: ${index % 2 === 0 ? "#ffffff" : "#f9f9f9"};">
-      <td style="padding: 10px;">${c.name}</td>
-      <td style="padding: 10px;">${c.designation}</td>
-      <td style="padding: 10px;">${c.region}</td>
-      <td style="padding: 10px;"><span class="contact-copy" data-text="${c.email}">${c.email}</span></td>
-      <td style="padding: 10px;"><span class="contact-copy mobile-btn" data-text="${c.mobile}">${c.mobile}</span></td>
+    <tr>
+      <td>${c.name}</td>
+      <td>${c.designation}</td>
+      <td>${c.region}</td>
+      <td><span class="contact-copy" data-text="${c.email}">${c.email}</span></td>
+      <td><span class="contact-copy mobile-btn" data-text="${c.mobile}">${c.mobile}</span></td>
     </tr>
   `).join("");
 
   return `
     <div class="card">
-      <h3>Contacts</h3>
+      <h3>Contacts Information</h3>
       <hr>
-      <div style="max-height: 400px; overflow-y: auto; border-radius: 8px;">
-        <table style="width:100%; border-collapse: collapse;">
+      <div class="table-container">
+        <table>
           <thead>
-            <tr style="background: #f1f1f1; text-align: left;">
-              <th style="padding: 10px;">Name</th>
-              <th style="padding: 10px;">Designation</th>
-              <th style="padding: 10px;">Region</th>
-              <th style="padding: 10px;">Email</th>
-              <th style="padding: 10px;">Mobile</th>
+            <tr>
+              <th>Name</th>
+              <th>Designation</th>
+              <th>Region</th>
+              <th>Email</th>
+              <th>Mobile</th>
             </tr>
           </thead>
           <tbody>
@@ -66,18 +66,6 @@ document.addEventListener("click", function (e) {
   if (e.target.classList.contains("contact-copy")) {
     const text = e.target.getAttribute("data-text");
     copyToClipboard(e.target, text);
-
-    // Mobile number call option
-    if (e.target.classList.contains("mobile-btn")) {
-      const isMobile = /Mobi|Android|iPhone/i.test(navigator.userAgent);
-      if (isMobile) {
-        setTimeout(() => {
-          if (confirm("Do you want to call?")) {
-            window.location.href = "tel:" + text;
-          }
-        }, 200);
-      }
-    }
   }
 });
 

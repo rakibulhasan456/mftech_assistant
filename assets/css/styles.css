@@ -302,33 +302,120 @@ body.dark-mode .fancy-btn:hover {
 
 /* Contacts */
 
-/* Zebra stripes */
+/* Contacts table design */
+
+/* Contacts Table Styles */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  /*margin: 15px 0;*/
+  font-size: 14px;
+}
+
+thead th {
+  padding: 12px 10px;
+  text-align: left;
+  font-weight: bold;
+}
+
+tbody td {
+  padding: 10px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+/* Light mode table styles */
+
+table {
+  background-color: #ffffff;
+  color: #222222;
+}
+
+thead tr {
+  background-color: #f1f1f1 !important;
+}
+
+thead th {
+  color: #222222;
+  border-bottom: 2px solid #ddd;
+}
 
 tbody tr:nth-child(odd) {
-  background: #fafafa;
+  background-color: #fafafa;
 }
 
 tbody tr:nth-child(even) {
-  background: #f0f0f0;
+  background-color: #f0f0f0;
 }
 
-tbody tr:hover {
-  background: inherit !important;
+/* Dark mode table styles */
+
+.dark-mode table {
+  background-color: #1e1e1e;
+  color: #f1f1f1;
 }
 
-/* Contacts copy buttons */
+.dark-mode thead tr {
+  background-color: #2d2d2d !important;
+}
+
+.dark-mode thead th {
+  color: #f1f1f1;
+  border-bottom: 2px solid #444;
+}
+
+.dark-mode tbody tr:nth-child(odd) {
+  background-color: #252525;
+}
+
+.dark-mode tbody tr:nth-child(even) {
+  background-color: #2a2a2a;
+}
+
+.dark-mode tbody td {
+  border-bottom: 1px solid #333;
+}
+
+/* Contact copy elements */
 
 .contact-copy {
-  color: #000;
-  text-decoration: underline;
   cursor: pointer;
-  padding: 0;
+  text-decoration: underline;
+  color: #007BFF;
+  transition: color 0.2s;
 }
 
-/* Copied! feedback */
+.dark-mode .contact-copy {
+  color: #4da6ff;
+}
+
+.contact-copy:hover {
+  color: #0056b3;
+}
+
+.dark-mode .contact-copy:hover {
+  color: #80c1ff;
+}
 
 .contact-copy.copied {
   color: green;
   font-weight: bold;
+}
+
+.dark-mode .contact-copy.copied {
+  color: #00cc00;
+}
+
+/* Responsive table container */
+
+.table-container {
+  max-height: 400px;
+  overflow-y: auto;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+.dark-mode .table-container {
+  border: 1px solid #444;
 }
 
