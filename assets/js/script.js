@@ -100,107 +100,158 @@ Personal SIM Number (only if doesn’t have BRAC SIM):</pre>
   `;
 }
     else if (page === "createEmail") {
-  content.innerHTML = `
-    <div class="card">
-      <h3>Create New BRAC Email</h3>
-      <hr>
-      <p><b>To:</b> it-support@brac.net</p>
-      <p><b>CC:</b> mf.email@brac.net, Supervisors (if needed)</p>
-      <p><b>Subject:</b> Request to Create New Email ID (Branch Name - Code OR Area Name OR Region Name)</p>
-      <hr>
-      <p><b>Email Body:</b></p>
-      <div id="createEmailBody">
-        <p>Dear Concern:<br>
-        Please create a new Email ID for the User mentioned below:</p>
+    content.innerHTML = `
+      <div class="card">
+        <h3>Create New BRAC Email</h3>
+        <hr>
+        <p><b>To:</b> it-support@brac.net</p>
+        <p><b>CC:</b> mf.email@brac.net, Supervisors (if needed)</p>
+        <p><b>Subject:</b> Request to Create New Email ID (Branch Name - Code OR Area Name OR Region Name)</p>
+        <hr>
+        <p><b>Email Body:</b></p>
+        <div id="createEmailBody">
+          <p>Dear Concern:<br>
+          Please create a new Email ID for the User mentioned below:</p>
 
-        <div style="overflow-x: auto; max-width: 100%;">
-          <table cellspacing="0" cellpadding="5" 
-            style="border-collapse: collapse; font-family: Arial, sans-serif; font-size: 13px; min-width: 900px; text-align: center; border: 1px solid black; width: 100%;">
-            <thead>
-              <tr>
-                <th style="border: 1px solid black; padding: 5px; white-space: nowrap;">SL</th>
-                <th style="border: 1px solid black; padding: 5px; white-space: nowrap;">User Name</th>
-                <th style="border: 1px solid black; padding: 5px; white-space: nowrap;">User PIN</th>
-                <th style="border: 1px solid black; padding: 5px; white-space: nowrap;">Designation<br>(Dabi/Progoti/BCUP/SCDP/NCDP)</th>
-                <th style="border: 1px solid black; padding: 5px; white-space: nowrap;">User Grade</th>
-                <th style="border: 1px solid black; padding: 5px; white-space: nowrap;">Phone Number<br>(Personal/Official)</th>
-                <th style="border: 1px solid black; padding: 5px; white-space: nowrap;">Base Office Name & Code</th>
-                <th style="border: 1px solid black; padding: 5px; white-space: nowrap;">Area Name</th>
-                <th style="border: 1px solid black; padding: 5px; white-space: nowrap;">Region Name</th>
-                <th style="border: 1px solid black; padding: 5px; white-space: nowrap;">Division Name<br>(If Request for <b>RM (SAM)</b> Mail Id)</th>
-                <th style="border: 1px solid black; padding: 5px; white-space: nowrap;">Supervisor's Email<br>(If Request for AAM/ABM/ARM Mail Id)</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td style="border: 1px solid black;">1</td>
-                <td style="border: 1px solid black;">Example</td>
-                <td style="border: 1px solid black;">00000</td>
-                <td style="border: 1px solid black;">AAM (Progoti)</td>
-                <td style="border: 1px solid black;"></td>
-                <td style="border: 1px solid black;">017********</td>
-                <td style="border: 1px solid black;">Example-0000</td>
-                <td style="border: 1px solid black;">Example</td>
-                <td style="border: 1px solid black;">Example</td>
-                <td style="border: 1px solid black;">Example</td>
-                <td style="border: 1px solid black;">am.p.example@brac.net</td>
-              </tr>
-            </tbody>
-          </table>
+          <div class="responsive-table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>SL</th>
+                  <th>User Name</th>
+                  <th>User PIN</th>
+                  <th>Designation<br>(Dabi/Progoti/BCUP/SCDP/NCDP)</th>
+                  <th>User Grade</th>
+                  <th>Phone Number<br>(Personal/Official)</th>
+                  <th>Base Office Name & Code</th>
+                  <th>Area Name</th>
+                  <th>Region Name</th>
+                  <th>Division Name<br>(If Request for RM (SAM) Mail Id)</th>
+                  <th>Supervisor's Email<br>(If Request for AAM/ABM/ARM Mail Id)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>Example</td>
+                  <td>00000</td>
+                  <td>AAM (Progoti)</td>
+                  <td></td>
+                  <td>017********</td>
+                  <td>Example-0000</td>
+                  <td>Example</td>
+                  <td>Example</td>
+                  <td>Example</td>
+                  <td>am.p.example@brac.net</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
+        <button class="copy-btn" onclick="copyCreateEmail()">Copy Email Body</button>
       </div>
-      <button class="copy-btn" onclick="copyCreateEmail()">Copy Email Body</button>
-    </div>
-  `;
-}
-else if (page === "renameEmail") {
-  content.innerHTML = `
-    <div class="card">
-      <h3>Rename Email ID</h3>
-      <hr>
-      <p><b>To:</b> it-support@brac.net</p>
-      <p><b>CC:</b> mf.email@brac.net, User mail ID, Staff’s Supervisor mail ID, Yours’s Supervisor mail ID</p>
-      <p><b>Subject:</b> Request to rename Email ID (Branch name- Code Or Area Name Or Region Name)</p>
-      <hr>
-      <p><b>Email Body:</b></p>
-      <div id="renameEmailBody">
-        <p>Dear IT support:<br>
-        Greetings! For operational purposes (The reason for changing the name of the mentioned email id). The information are as follows:</p>
+    `;
+  }
+else if (page === "createEmail") {
+    // Your existing createEmail content
+    content.innerHTML = `
+      <div class="card">
+        <h3>Create New BRAC Email</h3>
+        <hr>
+        <p><b>To:</b> it-support@brac.net</p>
+        <p><b>CC:</b> mf.email@brac.net, Supervisors (if needed)</p>
+        <p><b>Subject:</b> Request to Create New Email ID (Branch Name - Code OR Area Name OR Region Name)</p>
+        <hr>
+        <p><b>Email Body:</b></p>
+        <div id="createEmailBody">
+          <p>Dear Concern:<br>
+          Please create a new Email ID for the User mentioned below:</p>
 
-        <div style="overflow-x: auto; max-width: 100%;">
-          <table cellspacing="0" cellpadding="5" 
-       style="border-collapse: collapse; font-family: Arial, sans-serif; font-size: 13px; table-layout: fixed; min-width: 700px; border: 1px solid black;">
-            <thead>
-              <tr>
-                <th style="border: 1px solid black; padding: 5px; white-space: nowrap;">SL</th>
-                <th style="border: 1px solid black; padding: 5px; white-space: nowrap;">User Name</th>
-                <th style="border: 1px solid black; padding: 5px; white-space: nowrap;">User PIN</th>
-                <th style="border: 1px solid black; padding: 5px; white-space: nowrap;">User Designation</th>
-                <th style="border: 1px solid black; padding: 5px; white-space: nowrap;">Phone Number</th>
-                <th style="border: 1px solid black; padding: 5px; white-space: nowrap;">Base Office Name & Code</th>
-                <th style="border: 1px solid black; padding: 5px; white-space: nowrap;">Present Email ID</th>
-                <th style="border: 1px solid black; padding: 5px; white-space: nowrap;">Proposal for Renaming Email Id As-</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td style="border: 1px solid black;">1</td>
-                <td style="border: 1px solid black;"></td>
-                <td style="border: 1px solid black;"></td>
-                <td style="border: 1px solid black;"></td>
-                <td style="border: 1px solid black;"></td>
-                <td style="border: 1px solid black;"></td>
-                <td style="border: 1px solid black;"></td>
-                <td style="border: 1px solid black;"></td>
-              </tr>
-            </tbody>
-          </table>
+          <div class="responsive-table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>SL</th>
+                  <th>User Name</th>
+                  <th>User PIN</th>
+                  <th>Designation<br>(Dabi/Progoti/BCUP/SCDP/NCDP)</th>
+                  <th>User Grade</th>
+                  <th>Phone Number<br>(Personal/Official)</th>
+                  <th>Base Office Name & Code</th>
+                  <th>Area Name</th>
+                  <th>Region Name</th>
+                  <th>Division Name<br>(If Request for <b>RM (SAM)</b> Mail Id)</th>
+                  <th>Supervisor's Email<br>(If Request for AAM/ABM/ARM Mail Id)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>Example</td>
+                  <td>00000</td>
+                  <td>AAM (Progoti)</td>
+                  <td></td>
+                  <td>017********</td>
+                  <td>Example-0000</td>
+                  <td>Example</td>
+                  <td>Example</td>
+                  <td>Example</td>
+                  <td>am.p.example@brac.net</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
+        <button class="copy-btn" onclick="copyCreateEmail()">Copy Email Body</button>
       </div>
-      <button class="copy-btn" onclick="copyrenameEmail()">Copy Email Body</button>
-    </div>
-  `;
-}
+    `;
+  } else if (page === "renameEmail") {
+    content.innerHTML = `
+      <div class="card">
+        <h3>Rename BRAC Email</h3>
+        <hr>
+        <p><b>To:</b> it-support@brac.net</p>
+        <p><b>CC:</b> mf.email@brac.net, User mail ID, Staff's Supervisor mail ID, Yours's Supervisor mail ID</p>
+        <p><b>Subject:</b> Request to Rename Email ID (Branch Name - Code OR Area Name OR Region Name)</p>
+        <hr>
+        <p><b>Email Body:</b></p>
+        <div id="renameEmailBody">
+          <p>Dear IT support:<br>
+          Greetings! For operational purposes (The reason for changing the name of the mentioned email id). The information are as follows:</p>
+
+          <div class="responsive-table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>SL</th>
+                  <th>User Name</th>
+                  <th>User PIN</th>
+                  <th>User Designation</th>
+                  <th>Phone Number</th>
+                  <th>Base Office Name & Code</th>
+                  <th>Present Email ID</th>
+                  <th>Proposal for Renaming Email Id As-</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>Example User</td>
+                  <td>00000</td>
+                  <td>Example Designation</td>
+                  <td>017********</td>
+                  <td>Example-0000</td>
+                  <td>old.email@brac.net</td>
+                  <td>new.email@brac.net</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <button class="copy-btn" onclick="copyRenameEmail()">Copy Email Body</button>
+      </div>
+    `;
+  }
     else if (page === "addToGroup") {
   content.innerHTML = `
     <div class="card">
@@ -228,139 +279,126 @@ Thanks in advance!</pre>
     else if (page === "leaveBackup") {
   content.innerHTML = `
     <div class="card">
-      <h3>Leave Backup Email</h3>
+      <h3>Backup Support During Leave</h3>
       <hr>
       <p><b>To:</b> All Field Colleagues</p>
       <p><b>Cc:</b> parvez.mosaraf@brac.net, nayan.das@brac.net, Nearest Technology Officers</p>
       <p><b>Subject:</b> Backup Support During My Leave</p>
       <hr>
-
+      <p><b>Email Body:</b></p>
       <div id="leaveBackupBody">
         <p>Dear Respected Bhai & Apa,</p>
-        <p>Greetings from MF Technology <b><i>Narail</i></b> Region!</p>
 
-        <p>
-          Please be informed that I will be on leave on 
-          <b><i>02/05/2025 (or alternatively, from 27 to 29 July 2025 for 2 days)</i></b>.  
-          During my absence, the following Technology Officers will remain as my backup support:
-        </p>
+        <p>Greetings from MF Technology <b>Narail</b> Region!</p>
 
-        <table style="border-collapse: collapse; width: 100%; margin-top:10px; border:1px solid black;">
-          <tr>
-            <th style="border:1px solid black; padding:6px; text-align:left;">Remote support</th>
-            <th style="border:1px solid black; padding:6px; text-align:left;">Emergency Physical/ Remote support</th>
-          </tr>
-          <tr>
-            <td style="border:1px solid black; padding:6px;">
-              <b>Name:</b> Nayan Kumar Das<br>
-              <b>Email:</b> nayan.das@brac.net<br>
-              <b>Phone:</b> 01713-350478<br>
-              <b>Base:</b> BRAC-HO
-            </td>
-            <td style="border:1px solid black; padding:6px;">
-              <b>Name:</b> <br>
-              <b>Email:</b> <br>
-              <b>Phone:</b> <br>
-              <b>Base:</b> 
-            </td>
-          </tr>
-        </table>
+        <p>Please be informed that I will be on leave on <b>02/05/2025 (or alternatively, from 27 to 29 July 2025 for 2 days)</b>. During my absence, the following Technology Officers will remain as my backup support:</p>
 
-        <p style="margin-top:15px;">
-          <b>Note:</b><br>
-          Kindly register any complaints via Trendx CRM. Our respectable personnel will contact you to resolve any issues.
-        </p>
-
-        <p><i>If there is an emergency feel free to contact me. I will be available over the phone and on WhatsApp. (Optional)</i></p>
-
-        <p>
-          I will be available for all kinds of support after leaving. Thanks for your patience & cooperation.
-        </p>
-
-        <p>Best regards,<br>[Your Information]</p>
-      </div>
-
-      <div class="copy-button-container">
-        <button class="copy-btn" onclick="copyleaveBackupEmail()">Copy Email Body</button>
-      </div>
-    </div>
-  `;
-}
-    else if (page === "complainEmail") {
-  content.innerHTML = `
-    <div class="card">
-      <h3>Laptop Complaint Email</h3>
-      <hr>
-      <p><b>To:</b> Corporate.support@1000fix.com</p>
-      <p><b>CC:</b> related stockholders, supervisor</p>
-      <p><b>Subject:</b> Urgent: Request to Laptop Warranty Support (Dell Latitude 3520 – 9SWRFG3)</p>
-      <hr>
-      <p><b>Email Body:</b></p>
-
-      <div id="complainEmailBody">
-        <p>Dear Concern,<br>
-        Greetings!<br><br>
-        Please be informed that the Dell Latitude 3520 laptop’s display unit is problematic. Detailed information is below.</p>
-
-        <div style="overflow-x:auto;">
-          <table cellspacing="0" cellpadding="6"
-                 style="border-collapse: collapse; font-family: Arial, sans-serif; font-size:13px; border:1px solid black;">
+        <div class="responsive-table-container">
+          <table class="leave-backup-table">
+            <thead>
+              <tr>
+                <th>Remote support</th>
+                <th>Emergency Physical/ Remote support</th>
+              </tr>
+            </thead>
             <tbody>
               <tr>
-                <td colspan="2" style="border:1px solid black; padding:6px; text-align:center; font-weight:bold;">Microfinance</td>
-              </tr>
-              <tr>
-                <td colspan="2" style="border:1px solid black; padding:6px; text-align:center; font-weight:bold;">Technology Unit</td>
-              </tr>
-              <tr>
-                <td colspan="2" style="border:1px solid black; padding:6px; text-align:center; font-weight:bold;">Laptop Complain Sheet</td>
-              </tr>
-
-              <tr>
-                <td style="border:1px solid black; padding:6px; width:50%;">Complain Date:</td>
-                <td style="border:1px solid black; padding:6px;">07/07/2024</td>
-              </tr>
-              <tr>
-                <td style="border:1px solid black; padding:6px; width:50%;">Region Name:</td>
-                <td style="border:1px solid black; padding:6px;">Gopalgonj-2</td>
-              </tr>
-              <tr>
-                <td style="border:1px solid black; padding:6px; width:50%;">User Name:</td>
-                <td style="border:1px solid black; padding:6px;">Bkash Das</td>
-              </tr>
-              <tr>
-                <td style="border:1px solid black; padding:6px; width:50%;">User Mobile No:</td>
-                <td style="border:1px solid black; padding:6px;">01798485601</td>
-              </tr>
-              <tr>
-                <td style="border:1px solid black; padding:6px; width:50%;">User’s current Address:</td>
-                <td style="border:1px solid black; padding:6px;">
-                  BRAC Muksedpur Area Office, Muksedpur, Gopalgonj
+                <td>
+                  <b>Name:</b> Nayan Kumar Das<br>
+                  <b>Email:</b> nayan.das@brac.net<br>
+                  <b>Phone:</b> 01713-350478<br>
+                  <b>Base:</b> BRAC-HO
                 </td>
-              </tr>
-              <tr>
-                <td style="border:1px solid black; padding:6px; width:50%;">User BRAC E-mail Address:</td>
-                <td style="border:1px solid black; padding:6px;">bao.muksedpur@brac.net</td>
-              </tr>
-              <tr>
-                <td style="border:1px solid black; padding:6px; width:50%;">Laptop SL #</td>
-                <td style="border:1px solid black; padding:6px;">Dell Latitude 3520- 9SWRFG3</td>
-              </tr>
-              <tr>
-                <td style="border:1px solid black; padding:6px; width:50%;">Problem Description:</td>
-                <td style="border:1px solid black; padding:6px;">Display Problematic</td>
+                <td>
+                  <b>Name:</b><br>
+                  <b>Email:</b><br>
+                  <b>Phone:</b><br>
+                  <b>Base:</b>
+                </td>
               </tr>
             </tbody>
           </table>
         </div>
+        
+        <p><b>Note:</b><br>
+        Kindly register any complaints via <b>Trendx CRM</b>. Our respectable personnel will contact you to resolve any issues.</p>
 
-        <p style="margin-top:12px;">Please see the attachment. Please take initiative as soon as possible.</p>
+        <p>If there is an emergency feel free to contact me. I will be available over the phone and on WhatsApp. (Optional)</p>
+
+        <p>I will be available for all kinds of support after leaving. Thanks for your patience & cooperation.</p>
       </div>
-
-      <button class="copy-btn" onclick="copyComplainEmail()">Copy Email Body</button>
+      <button class="copy-btn" onclick="copyLeaveBackup()">Copy Email Body</button>
     </div>
   `;
 }
+    else if (page === "complainEmail") {
+    content.innerHTML = `
+      <div class="card">
+        <h3>Laptop Warranty Complain Email</h3>
+        <hr>
+        <p><b>To:</b> Corporate.support@1000fix.com</p>
+        <p><b>CC:</b> related stockholders, supervisor</p>
+        <p><b>Subject:</b> Urgent: Request to Laptop Warranty Support (Dell Latitude 3520 – 9SWRFG3)</p>
+        <hr>
+        <p><b>Email Body:</b></p>
+        <div id="complainEmailBody">
+          <p>Dear Concern,<br>
+          Greetings!</p>
+
+          <p>Please be informed that the Dell Latitude 3520 laptop's display unit is problematic. Detailed information is below.</p>
+
+          <div class="responsive-table-container">
+            <table>
+              <tr>
+                <td colspan="2" style="text-align: center; font-weight: bold;">Microfinance</td>
+              </tr>
+              <tr>
+                <td colspan="2" style="text-align: center; font-weight: bold;">Technology Unit</td>
+              </tr>
+              <tr>
+                <td colspan="2" style="text-align: center; font-weight: bold;">Laptop Complain Sheet</td>
+              </tr>
+              <tr>
+                <td style="font-weight: bold;">Complain Date:</td>
+                <td>07/07/2024</td>
+              </tr>
+              <tr>
+                <td style="font-weight: bold;">Region Name:</td>
+                <td>Gopalgonj-2</td>
+              </tr>
+              <tr>
+                <td style="font-weight: bold;">User Name:</td>
+                <td>Bkash Das</td>
+              </tr>
+              <tr>
+                <td style="font-weight: bold;">User Mobile No:</td>
+                <td>01798485601</td>
+              </tr>
+              <tr>
+                <td style="font-weight: bold;">User's current Address:</td>
+                <td>BRAC Muksedpur Area Office, Muksedpur, Gopalgonj</td>
+              </tr>
+              <tr>
+                <td style="font-weight: bold;">User BRAC E-mail Address:</td>
+                <td>bao.muksedpur@brac.net</td>
+              </tr>
+              <tr>
+                <td style="font-weight: bold;">Laptop SL #</td>
+                <td>Dell Latitude 3520- 9SWRFG3</td>
+              </tr>
+              <tr>
+                <td style="font-weight: bold;">Problem Description:</td>
+                <td>Display Problematic</td>
+              </tr>
+            </table>
+          </div>
+          <br>
+          <p>Please see the attachment. Please take initiative as soon as possible.</p>
+        </div>
+        <button class="copy-btn" onclick="copyComplainEmail()">Copy Email Body</button>
+      </div>
+    `;
+  }
     else if (page === "whatsappDcsSupportFormat") { 
   content.innerHTML = `
     <div class="card">
@@ -450,6 +488,50 @@ We appreciate your prompt attention to this matter and look forward to a quick r
         <li>v1.0.0 – Added several email format.</li>
         <li>v1.0.0 – Added frequently used message format.</li>
       </ul>
+<br>
+<p>07 September 2025</p>
+      <ul style="margin-left: 20px;">
+<li>v1.0.0 – Fixed copy format in desktop and mobile.</li>
+        <li>v1.0.0 – Added contacts information and search option.</li>
+        <li>v1.0.0 – Added CRM message format.</li>
+        <li>v1.0.0 – Various design changes.</li>
+      </ul>
+    </div>
+  `;
+}
+    else if (page === "crmMessageFormat") { 
+  content.innerHTML = `
+    <div class="card">
+      <h3>Whatsapp DCS Support Format</h3> 
+      <hr> 
+      <p><b>Message Body:</b></p> 
+      <pre id="crmMessageFormatBody">1. Name: 
+
+2. PIN: 
+
+3. Designation: 
+
+4. Branch: 
+
+5. Area: 
+
+6. Region: 
+
+7. Division: 
+
+8. Contact: 
+
+9. Supervision branch name & code: 
+
+10. Project name with project code: 
+
+11. Present area joining date: 
+
+12. Problem Details: 
+
+13. Problem Screenshot:</pre> 
+      <button class="copy-btn" onclick="copyTextById('crmMessageFormatBody', this)">Copy Message Body</button>
+
     </div>
   `;
 }
@@ -461,40 +543,114 @@ We appreciate your prompt attention to this matter and look forward to a quick r
 // Copy create email function
 
 function copyCreateEmail() {
-  const range = document.createRange();
   const emailBody = document.getElementById("createEmailBody");
-  range.selectNode(emailBody);
+  const helper = document.getElementById("copy-helper");
+  
+  // Create a light mode version for copying
+  helper.innerHTML = emailBody.innerHTML;
+  
+  // Replace the table with our light mode version
+  const table = helper.querySelector('table');
+  if (table) {
+    table.className = 'copy-table';
+    
+    // Apply light mode styles to all elements
+    const allElements = helper.getElementsByTagName('*');
+    for (let element of allElements) {
+      element.style.backgroundColor = 'white';
+      element.style.color = 'black';
+      element.style.borderColor = 'black';
+    }
+    
+    // Specifically style table headers and cells
+    const ths = helper.querySelectorAll('th');
+    ths.forEach(th => {
+      th.style.backgroundColor = '#f1f1f1';
+    });
+    
+    const tds = helper.querySelectorAll('td');
+    tds.forEach(td => {
+      td.style.backgroundColor = 'white';
+    });
+  }
+  
+  // Select and copy the content
+  const range = document.createRange();
+  range.selectNode(helper);
   const selection = window.getSelection();
   selection.removeAllRanges();
   selection.addRange(range);
+  
   try {
     document.execCommand("copy");
     const btn = document.querySelector("button[onclick='copyCreateEmail()']");
-    btn.textContent = "Copied!";
-    setTimeout(() => btn.textContent = "Copy Email Body", 2000);
+    if (btn) {
+      btn.textContent = "Copied!";
+      setTimeout(() => {
+        btn.textContent = "Copy Email Body";
+      }, 2000);
+    }
   } catch (err) {
     console.error("Copy failed:", err);
   }
+  
   selection.removeAllRanges();
 }
 
 // Copy rename email function
 
-function copyrenameEmail() {
-  const range = document.createRange();
+function copyRenameEmail() {
   const emailBody = document.getElementById("renameEmailBody");
-  range.selectNode(emailBody);
+  const helper = document.getElementById("copy-helper");
+  
+  // Create a light mode version for copying
+  helper.innerHTML = emailBody.innerHTML;
+  
+  // Replace the table with our light mode version
+  const table = helper.querySelector('table');
+  if (table) {
+    table.className = 'copy-table';
+    
+    // Apply light mode styles to all elements
+    const allElements = helper.getElementsByTagName('*');
+    for (let element of allElements) {
+      element.style.backgroundColor = 'white';
+      element.style.color = 'black';
+      element.style.borderColor = 'black';
+    }
+    
+    // Specifically style table headers and cells
+    const ths = helper.querySelectorAll('th');
+    ths.forEach(th => {
+      th.style.backgroundColor = '#f1f1f1';
+    });
+    
+    const tds = helper.querySelectorAll('td');
+    tds.forEach(td => {
+      td.style.backgroundColor = 'white';
+    });
+  }
+  
+  // Select and copy the content
+  const range = document.createRange();
+  range.selectNode(helper);
   const selection = window.getSelection();
   selection.removeAllRanges();
   selection.addRange(range);
+  
   try {
     document.execCommand("copy");
-    const btn = document.querySelector("button[onclick='copyrenameEmail()']");
-    btn.textContent = "Copied!";
-    setTimeout(() => btn.textContent = "Copy Email Body", 2000);
+    const btn = document.querySelector("button[onclick='copyRenameEmail()']");
+    if (btn) {
+      btn.textContent = "Copied!";
+      setTimeout(() => {
+        btn.textContent = "Copy Email Body";
+      }, 2000);
+    }
   } catch (err) {
     console.error("Copy failed:", err);
   }
+  
   selection.removeAllRanges();
 }
 
@@ -523,43 +679,116 @@ function copyCreateEmailBody(btn, targetId) {
 
 // copy backup email
 
-function copyleaveBackupEmail() {
-  const range = document.createRange();
+function copyLeaveBackup() {
   const emailBody = document.getElementById("leaveBackupBody");
-  range.selectNode(emailBody);
+  const helper = document.getElementById("copy-helper");
+  
+  // Create a light mode version for copying
+  helper.innerHTML = emailBody.innerHTML;
+  
+  // Replace the table with our light mode version
+  const table = helper.querySelector('table');
+  if (table) {
+    table.className = 'copy-table leave-backup-table';
+    
+    // Apply light mode styles to all elements
+    const allElements = helper.getElementsByTagName('*');
+    for (let element of allElements) {
+      element.style.backgroundColor = 'white';
+      element.style.color = 'black';
+      element.style.borderColor = 'black';
+    }
+    
+    // Specifically style table cells with left alignment
+    const tds = helper.querySelectorAll('td');
+    tds.forEach(td => {
+      td.style.backgroundColor = 'white';
+      td.style.border = '1px solid black';
+      td.style.textAlign = 'left'; // Force left alignment
+      td.style.verticalAlign = 'top'; // Align content to top
+    });
+    
+    const ths = helper.querySelectorAll('th');
+    ths.forEach(th => {
+      th.style.backgroundColor = '#f1f1f1';
+      th.style.border = '1px solid black';
+      th.style.textAlign = 'center'; // Keep headers centered
+    });
+  }
+  
+  // Select and copy the content
+  const range = document.createRange();
+  range.selectNode(helper);
   const selection = window.getSelection();
   selection.removeAllRanges();
   selection.addRange(range);
-
+  
   try {
     document.execCommand("copy");
-    const btn = document.querySelector("button[onclick='copyleaveBackupEmail()']");
-    btn.textContent = "Copied!";
-    setTimeout(() => btn.textContent = "Copy Email Body", 2000);
+    const btn = document.querySelector("button[onclick='copyLeaveBackup()']");
+    if (btn) {
+      btn.textContent = "Copied!";
+      setTimeout(() => {
+        btn.textContent = "Copy Email Body";
+      }, 2000);
+    }
   } catch (err) {
     console.error("Copy failed:", err);
   }
+  
   selection.removeAllRanges();
 }
 
 // Copy complain email
 
 function copyComplainEmail() {
-  const range = document.createRange();
   const emailBody = document.getElementById("complainEmailBody");
-  range.selectNode(emailBody);
+  const helper = document.getElementById("copy-helper");
+  
+  // Create a light mode version for copying
+  helper.innerHTML = emailBody.innerHTML;
+  
+  // Replace the table with our light mode version
+  const table = helper.querySelector('table');
+  if (table) {
+    table.className = 'copy-table';
+    
+    // Apply light mode styles to all elements
+    const allElements = helper.getElementsByTagName('*');
+    for (let element of allElements) {
+      element.style.backgroundColor = 'white';
+      element.style.color = 'black';
+      element.style.borderColor = 'black';
+    }
+    
+    // Specifically style table cells
+    const tds = helper.querySelectorAll('td');
+    tds.forEach(td => {
+      td.style.backgroundColor = 'white';
+      td.style.border = '1px solid black';
+    });
+  }
+  
+  // Select and copy the content
+  const range = document.createRange();
+  range.selectNode(helper);
   const selection = window.getSelection();
   selection.removeAllRanges();
   selection.addRange(range);
-
+  
   try {
     document.execCommand("copy");
     const btn = document.querySelector("button[onclick='copyComplainEmail()']");
-    btn.textContent = "Copied!";
-    setTimeout(() => btn.textContent = "Copy Email Body", 2000);
+    if (btn) {
+      btn.textContent = "Copied!";
+      setTimeout(() => {
+        btn.textContent = "Copy Email Body";
+      }, 2000);
+    }
   } catch (err) {
     console.error("Copy failed:", err);
   }
+  
   selection.removeAllRanges();
 }
 
