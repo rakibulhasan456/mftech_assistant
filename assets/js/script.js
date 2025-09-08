@@ -483,6 +483,12 @@ We appreciate your prompt attention to this matter and look forward to a quick r
     else if (page === "contacts") {
   content.innerHTML = loadContacts();
 }
+    else if (page === 'zonalReports') {
+  content.innerHTML = loadZonalReports();
+}
+    else if (page === 'centralReports') {
+  content.innerHTML = loadCentralReports();
+}
 }
 
 // Copy create email function

@@ -744,3 +744,84 @@ tbody tr:nth-child(even) {
   overflow-x: auto;
 }
 
+/* Zonal Reports specific styles */
+
+.report-link {
+  color: #007BFF;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.report-link:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+.dark-mode .report-link {
+  color: #4da6ff;
+}
+
+.dark-mode .report-link:hover {
+  color: #80c1ff;
+}
+
+/* Copy button styling for reports - fixed size */
+
+.report-copy {
+  padding: 6px 12px;
+  background: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 70px;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 500;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+.report-copy:hover {
+  background: #0056b3;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.report-copy.copied {
+  background: green;
+  transform: none;
+  box-shadow: none;
+}
+
+.dark-mode .report-copy {
+  background: #555;
+}
+
+.dark-mode .report-copy:hover {
+  background: #777;
+}
+
+.dark-mode .report-copy.copied {
+  background: #00a300;
+}
+
+/* Media queries for responsive button sizing */
+
+@media (max-width: 768px) {
+  .report-copy {
+    width: 70px;
+    padding: 5px 10px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .report-copy {
+    width: 70px;
+    padding: 4px 8px;
+    font-size: 11px;
+  }
+}
+
