@@ -152,60 +152,7 @@ Personal SIM Number (only if doesn’t have BRAC SIM):</pre>
       </div>
     `;
   }
-else if (page === "createEmail") {
-    // Your existing createEmail content
-    content.innerHTML = `
-      <div class="card">
-        <h3>Create New BRAC Email</h3>
-        <hr>
-        <p><b>To:</b> it-support@brac.net</p>
-        <p><b>CC:</b> mf.email@brac.net, Supervisors (if needed)</p>
-        <p><b>Subject:</b> Request to Create New Email ID (Branch Name - Code OR Area Name OR Region Name)</p>
-        <hr>
-        <p><b>Email Body:</b></p>
-        <div id="createEmailBody">
-          <p>Dear Concern:<br>
-          Please create a new Email ID for the User mentioned below:</p>
-
-          <div class="responsive-table-container">
-            <table>
-              <thead>
-                <tr>
-                  <th>SL</th>
-                  <th>User Name</th>
-                  <th>User PIN</th>
-                  <th>Designation<br>(Dabi/Progoti/BCUP/SCDP/NCDP)</th>
-                  <th>User Grade</th>
-                  <th>Phone Number<br>(Personal/Official)</th>
-                  <th>Base Office Name & Code</th>
-                  <th>Area Name</th>
-                  <th>Region Name</th>
-                  <th>Division Name<br>(If Request for <b>RM (SAM)</b> Mail Id)</th>
-                  <th>Supervisor's Email<br>(If Request for AAM/ABM/ARM Mail Id)</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>Example</td>
-                  <td>00000</td>
-                  <td>AAM (Progoti)</td>
-                  <td></td>
-                  <td>017********</td>
-                  <td>Example-0000</td>
-                  <td>Example</td>
-                  <td>Example</td>
-                  <td>Example</td>
-                  <td>am.p.example@brac.net</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-        <button class="copy-btn" onclick="copyCreateEmail()">Copy Email Body</button>
-      </div>
-    `;
-  } else if (page === "renameEmail") {
+    else if (page === "renameEmail") {
     content.innerHTML = `
       <div class="card">
         <h3>Rename BRAC Email</h3>
