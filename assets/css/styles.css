@@ -736,3 +736,11 @@ tbody tr:nth-child(even) {
   vertical-align: top !important;
 }
 
+#createEmailBody {
+  overflow-x: auto;
+}
+
+#renameEmailBody {
+  overflow-x: auto;
+}
+
