@@ -293,34 +293,33 @@ Thanks in advance!</pre>
 
         <p>Please be informed that I will be on leave on <b>02/05/2025 (or alternatively, from 27 to 29 July 2025 for 2 days)</b>. During my absence, the following Technology Officers will remain as my backup support:</p>
 
-        <div class="responsive-table-container">
-          <table class="leave-backup-table">
-            <thead>
-              <tr>
-                <th>Remote support</th>
-                <th>Emergency Physical/ Remote support</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>
-                  <b>Name:</b> Nayan Kumar Das<br>
-                  <b>Email:</b> nayan.das@brac.net<br>
-                  <b>Phone:</b> 01713-350478<br>
-                  <b>Base:</b> BRAC-HO
-                </td>
-                <td>
-                  <b>Name:</b><br>
-                  <b>Email:</b><br>
-                  <b>Phone:</b><br>
-                  <b>Base:</b>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+        <!-- Removed the responsive container for a simple table -->
+        <table>
+          <thead>
+            <tr>
+              <th>Remote support</th>
+              <th>Emergency Physical/<br>Remote support</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <b>Name:</b> Nayan Kumar Das<br>
+                <b>Email:</b> nayan.das@brac.net<br>
+                <b>Phone:</b> 01713-350478<br>
+                <b>Base:</b> BRAC-HO
+              </td>
+              <td>
+                <b>Name:</b> <br>
+                <b>Email:</b> <br>
+                <b>Phone:</b> <br>
+                <b>Base:</b> 
+              </td>
+            </tr>
+          </tbody>
+        </table>
         
-        <p><b>Note:</b><br>
+        <p><strong>Note:</strong><br>
         Kindly register any complaints via <b>Trendx CRM</b>. Our respectable personnel will contact you to resolve any issues.</p>
 
         <p>If there is an emergency feel free to contact me. I will be available over the phone and on WhatsApp. (Optional)</p>
@@ -686,33 +685,42 @@ function copyLeaveBackup() {
   // Create a light mode version for copying
   helper.innerHTML = emailBody.innerHTML;
   
-  // Replace the table with our light mode version
+  // Apply light mode styles to all elements
+  const allElements = helper.getElementsByTagName('*');
+  for (let element of allElements) {
+    element.style.backgroundColor = 'white';
+    element.style.color = 'black';
+  }
+  
+  // Specifically style the table for copying with fixed width
   const table = helper.querySelector('table');
   if (table) {
     table.className = 'copy-table leave-backup-table';
+    table.style.width = '400px';
+    table.style.maxWidth = '400px';
+    table.style.borderCollapse = 'collapse';
+    table.style.fontFamily = 'Arial, sans-serif';
+    table.style.border = '1px solid black';
+    table.style.tableLayout = 'fixed';
     
-    // Apply light mode styles to all elements
-    const allElements = helper.getElementsByTagName('*');
-    for (let element of allElements) {
-      element.style.backgroundColor = 'white';
-      element.style.color = 'black';
-      element.style.borderColor = 'black';
-    }
-    
-    // Specifically style table cells with left alignment
+    // Style table cells
     const tds = helper.querySelectorAll('td');
     tds.forEach(td => {
-      td.style.backgroundColor = 'white';
       td.style.border = '1px solid black';
-      td.style.textAlign = 'left'; // Force left alignment
-      td.style.verticalAlign = 'top'; // Align content to top
+      td.style.padding = '8px';
+      td.style.textAlign = 'left';
+      td.style.verticalAlign = 'top';
+      td.style.width = '50%';
     });
     
+    // Style table headers
     const ths = helper.querySelectorAll('th');
     ths.forEach(th => {
       th.style.backgroundColor = '#f1f1f1';
       th.style.border = '1px solid black';
-      th.style.textAlign = 'center'; // Keep headers centered
+      th.style.padding = '8px';
+      th.style.textAlign = 'center';
+      th.style.width = '50%';
     });
   }
   

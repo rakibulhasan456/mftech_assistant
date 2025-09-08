@@ -662,13 +662,62 @@ tbody tr:nth-child(even) {
 
 /* Additional styling for leave backup table */
 
-.leave-backup-table {
-  width: 100%;
+/* Fix only for leave backup table - small and left-aligned */
+
+#leaveBackupBody table {
+  width: auto;
   border-collapse: collapse;
+  table-layout: auto;
+  margin: 0;
+  max-width: 400px;
 }
 
-.leave-backup-table th, .leave-backup-table td {
+#leaveBackupBody th, #leaveBackupBody td {
   border: 1px solid black;
-  padding: 10px;
+  padding: 8px;
+  word-wrap: break-word;
+}
+
+#leaveBackupBody th {
+  background-color: #f1f1f1;
+  text-align: center;
+  white-space: nowrap;
+}
+
+#leaveBackupBody td {
+  text-align: left;
+  vertical-align: top;
+}
+
+/* For copy functionality - fixed width */
+
+.copy-table.leave-backup-table {
+  border-collapse: collapse;
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  border: 1px solid black;
+  width: 400px !important;
+  background: white !important;
+  color: black !important;
+  table-layout: fixed;
+  margin: 0;
+}
+
+.copy-table.leave-backup-table th, .copy-table.leave-backup-table td {
+  border: 1px solid black !important;
+  padding: 8px !important;
+  background: white !important;
+  color: black !important;
+}
+
+.copy-table.leave-backup-table th {
+  background-color: #f1f1f1 !important;
+  text-align: center !important;
+  white-space: nowrap !important;
+}
+
+.copy-table.leave-backup-table td {
+  text-align: left !important;
+  vertical-align: top !important;
 }
 
