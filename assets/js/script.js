@@ -293,8 +293,7 @@ Thanks in advance!</pre>
 
         <p>Please be informed that I will be on leave on <b>02/05/2025 (or alternatively, from 27 to 29 July 2025 for 2 days)</b>. During my absence, the following Technology Officers will remain as my backup support:</p>
 
-        <!-- Removed the responsive container for a simple table -->
-        <table>
+        <table class="leave-backup-table">
           <thead>
             <tr>
               <th>Remote support</th>
@@ -313,13 +312,13 @@ Thanks in advance!</pre>
                 <b>Name:</b> <br>
                 <b>Email:</b> <br>
                 <b>Phone:</b> <br>
-                <b>Base:</b> 
+                <b>Base:</b>
               </td>
             </tr>
           </tbody>
         </table>
-        
-        <p><strong>Note:</strong><br>
+        <br>
+        <p><b>Note:</b><br>
         Kindly register any complaints via <b>Trendx CRM</b>. Our respectable personnel will contact you to resolve any issues.</p>
 
         <p>If there is an emergency feel free to contact me. I will be available over the phone and on WhatsApp. (Optional)</p>
@@ -685,16 +684,10 @@ function copyLeaveBackup() {
   // Create a light mode version for copying
   helper.innerHTML = emailBody.innerHTML;
   
-  // Apply light mode styles to all elements
-  const allElements = helper.getElementsByTagName('*');
-  for (let element of allElements) {
-    element.style.backgroundColor = 'white';
-    element.style.color = 'black';
-  }
-  
-  // Specifically style the table for copying with fixed width
+  // Remove the leave-backup-table class to avoid dark mode styles
   const table = helper.querySelector('table');
   if (table) {
+    table.classList.remove('leave-backup-table');
     table.className = 'copy-table leave-backup-table';
     table.style.width = '400px';
     table.style.maxWidth = '400px';
@@ -711,6 +704,8 @@ function copyLeaveBackup() {
       td.style.textAlign = 'left';
       td.style.verticalAlign = 'top';
       td.style.width = '50%';
+      td.style.backgroundColor = 'white';
+      td.style.color = 'black';
     });
     
     // Style table headers
@@ -721,6 +716,7 @@ function copyLeaveBackup() {
       th.style.padding = '8px';
       th.style.textAlign = 'center';
       th.style.width = '50%';
+      th.style.color = 'black';
     });
   }
   
