@@ -370,14 +370,33 @@ Thank you.</pre>
     <div class="card">
       <h3>Bandwidth Upgradation Request Format</h3> 
       <hr> 
-      <p><b>Message Body:</b></p> 
-      <pre id="bandwidthUpgradationBody">Branch Code:
-Connectivity Type (Fiber/Radio):
-Total Staff :
-Number of Devices:
-Current Bandwidth:
-Required Bandwidth:
-Upload Image: Current BW Screenshot</pre> 
+<p><b>To:</b> shovan.shahriar@brac.net</p>
+      <p><b>CC:</b> parvez.mosaraf@brac.net</p>
+      <div style="margin-left: 34px;">
+<p>Local Management</p>
+      </div>
+      
+      <p><b>Subject:</b> Internet Speed Issue (Branch Name-Branch code)</p>
+      <hr>
+      <p><b>Email Body:</b></p> 
+      <pre id="bandwidthUpgradationBody">Dear Bhai,
+
+I hope this email finds you in good health.
+
+I am writing to request an upgrade of the internet bandwidth for our branch to ensure smooth operations and uninterrupted connectivity. Our current bandwidth has become insufficient to meet daily work requirements, which is affecting efficiency.
+
+Please find the branch details below:
+
+Branch Code: 
+Connectivity Type (Fiber/Radio): 
+Total Staff: 
+Number of Devices: 
+Current Bandwidth: 
+Required Bandwidth: 
+
+Additionally, I have attached a screenshot of the current bandwidth utilization for your reference.
+
+I kindly request you to consider this application and approve the required upgrade at the earliest convenience.</pre> 
       <button class="copy-btn" onclick="copyTextById('bandwidthUpgradationBody', this)">Copy Message Body</button>
 
     </div>
@@ -406,7 +425,7 @@ Greetings!
 
 I am writing to bring to your immediate attention the issue of poor cellular network signals (both voice and data) at our BRAC Naihati office. (Problem Short Summary)
 
-Office Location:
+<b>Office Location:</b>
 BRAC-Naihati Office, Location: ........ 
 Branch Code: 8890
 
@@ -414,7 +433,57 @@ This connectivity issue is impacting our daily operations and causing significan
 
 We appreciate your prompt attention to this matter and look forward to a quick resolution.</pre>
 
-<span class="p1">Please remember to attach the filled Complaint Form (Word Copy) before sending the email.</span>
+<span class="p1">Please remember to attach the filled Complaint Form (Word Copy) before sending the email. Navigate to "Downloads" to get the form.</span>
+      <button class="copy-btn" onclick="copyTextById('emailBody', this)">Copy Email Body</button>
+    </div>
+  `;
+}
+    else if (page === "travellingBillFormat") {
+  content.innerHTML = `
+    <div class="card">
+      <h3>Request to Approve Travel Allowance Bill</h3>
+      <hr>
+      <p><b>To:</b> parvez.mosaraf@brac.net</p>
+      <p><b>CC:</b> Local Accounts</p>
+      
+      <p><b>Subject:</b> Request to Approve TA Bill of Month - 2025 Sr.TO_Base_Name (TO_Name)</p>
+      <hr>
+      <p><b>Email Body:</b></p>
+      <pre id="emailBody">Dear Bhai,
+
+I hope this email reaches you in good health.
+
+Please approve my TA bill for March 2025 as mentioned below,
+
+Total T.A Bill = 00 Taka
+
+
+Please guide me if anything needs to be corrected. Thank You.</pre>
+
+<span class="p1">Please remember to attach the TA Bill PDF and rename as "Sr.To_Base_Name (TO_Name) bill in Month 25". Navigate to "Downloads" to get the format if required.</span>
+
+      <button class="copy-btn" onclick="copyTextById('emailBody', this)">Copy Email Body</button>
+    </div>
+  `;
+}
+    else if (page === "travellingApprovalFormat") {
+  content.innerHTML = `
+    <div class="card">
+      <h3>Request for Travel Approval</h3>
+      <hr>
+      <p><b>To:</b> parvez.mosaraf@brac.net</p>
+      
+      <p><b>Subject:</b> Request for travelling approval Sr.TO_Base_Name (TO_Name)</p>
+      <hr>
+      <p><b>Email Body:</b></p>
+      <pre id="emailBody">Dear Bhai,
+
+I hope this email reaches you in good health. I am writing to request your approval for traveling to [destination] from [start date] to [end date] in order to [purpose].
+
+The travel approval application has been attached for your kind review and approval.</pre>
+
+<span class="p1">Please remember to attach the Travel Approval PDF and rename as "Request for travelling approval Sr.TO_Base_Name (TO_Name)". Navigate to "Downloads" to get the format if required.</span>
+
       <button class="copy-btn" onclick="copyTextById('emailBody', this)">Copy Email Body</button>
     </div>
   `;
@@ -488,6 +557,9 @@ We appreciate your prompt attention to this matter and look forward to a quick r
 }
     else if (page === 'centralReports') {
   content.innerHTML = loadCentralReports();
+}
+    else if (page === 'downloads') {
+  content.innerHTML = '<div id="downloads-section">' + loadDownloads() + '</div>';
 }
 }
 
