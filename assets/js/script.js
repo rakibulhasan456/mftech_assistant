@@ -3,13 +3,71 @@ const menuBtn = document.getElementById("menu-btn");
 const sidebar = document.getElementById("sidebar");
 const closeBtn = document.querySelector(".closebtn");
 
-// Open sidebar
+// Store and restore sidebar state
+function saveSidebarState() {
+  const expandedSections = [];
+  document.querySelectorAll('.sidebar-section.open').forEach(section => {
+    expandedSections.push(section.id);
+  });
+  
+  localStorage.setItem('sidebarExpandedSections', JSON.stringify(expandedSections));
+  localStorage.setItem('currentSection', getCurrentSection());
+}
+
+function restoreSidebarState() {
+  // Restore expanded sections
+  const expandedSections = JSON.parse(localStorage.getItem('sidebarExpandedSections') || '[]');
+  expandedSections.forEach(id => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.classList.add('open');
+    }
+  });
+  
+  // Scroll to the last viewed position if available
+  const scrollPosition = localStorage.getItem('sidebarScrollPosition');
+  if (scrollPosition) {
+    setTimeout(() => {
+      sidebar.scrollTop = parseInt(scrollPosition);
+    }, 100);
+  }
+}
+
+function getCurrentSection() {
+  const content = document.getElementById("content").innerHTML;
+  // This is a simple way to determine the current section based on content
+  // You might need to enhance this based on your specific content structure
+  if (content.includes('StaffInfoIndividual')) return 'staffInfo';
+  if (content.includes('Email Password Reset')) return 'emailReset';
+  if (content.includes('Create New BRAC Email')) return 'createEmail';
+  if (content.includes('Rename BRAC Email')) return 'renameEmail';
+  if (content.includes('Add to Email Group')) return 'addToGroup';
+  if (content.includes('Backup Support During Leave')) return 'leaveBackup';
+  if (content.includes('Laptop Warranty Complain Email')) return 'complainEmail';
+  if (content.includes('Whatsapp DCS Support Format')) return 'whatsappDcsSupportFormat';
+  if (content.includes('Bandwidth Upgradation Request Format')) return 'bandwidthUpgradation';
+  if (content.includes('Request for Resolution of Cellular Network Issue')) return 'resolutionCellularNetwork';
+  if (content.includes('Request to Approve Travel Allowance Bill')) return 'travellingBillFormat';
+  if (content.includes('Request for Travel Approval')) return 'travellingApprovalFormat';
+  if (content.includes('About MFTech Assistant')) return 'about';
+  if (content.includes('CRM Message Format')) return 'crmMessageFormat';
+  if (content.includes('contacts-container')) return 'contacts';
+  if (content.includes('zonal-reports-container')) return 'zonalReports';
+  if (content.includes('central-reports-container')) return 'centralReports';
+  if (content.includes('downloads-section')) return 'downloads';
+  return 'home';
+}
+
+// Open sidebar with preserved state
 menuBtn.addEventListener("click", () => {
   sidebar.classList.add("open");
+  restoreSidebarState();
 });
 
-// Close sidebar
+// Close sidebar with state preservation
 closeBtn.addEventListener("click", () => {
+  localStorage.setItem('sidebarScrollPosition', sidebar.scrollTop);
+  saveSidebarState();
   sidebar.classList.remove("open");
 });
 
@@ -19,6 +77,11 @@ sidebar.querySelectorAll("a[data-section]").forEach(link => {
     e.preventDefault();
     const section = link.getAttribute("data-section");
     loadContent(section);
+    
+    // Save state before closing
+    localStorage.setItem('sidebarScrollPosition', sidebar.scrollTop);
+    saveSidebarState();
+    
     sidebar.classList.remove("open"); // close sidebar after click
   });
 });
@@ -27,10 +90,26 @@ sidebar.querySelectorAll("a[data-section]").forEach(link => {
 document.addEventListener("click", (e) => {
   const sidebarOpen = sidebar.classList.contains("open");
   if (sidebarOpen && !sidebar.contains(e.target) && e.target !== menuBtn) {
+    localStorage.setItem('sidebarScrollPosition', sidebar.scrollTop);
+    saveSidebarState();
     sidebar.classList.remove("open");
   }
 });
 
+// Add event listeners to section headers to track expanded/collapsed state
+document.addEventListener("DOMContentLoaded", () => {
+  // Add click handlers to all section headers
+  document.querySelectorAll('.sidebar-section-header').forEach(header => {
+    header.addEventListener('click', () => {
+      // Save state after a short delay to ensure the class has been toggled
+      setTimeout(saveSidebarState, 50);
+    });
+  });
+  
+  // Load initial content
+  const lastSection = localStorage.getItem('currentSection') || 'home';
+  loadContent(lastSection);
+});
 
 // Dark/Light Mode
 const modeToggle = document.getElementById("modeToggle");
@@ -45,9 +124,10 @@ modeToggle.addEventListener("click", () => {
   modeToggle.textContent = document.body.classList.contains("dark-mode") ? "☀️" : "🌙";
 });
 
-// Load Content Function
+// Load Content Function (unchanged from your original code)
 function loadContent(page) {
   const content = document.getElementById("content");
+  localStorage.setItem('currentSection', page);
   
   if (page === "home") {
   const content = document.getElementById("content");
