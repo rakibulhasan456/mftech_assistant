@@ -3,71 +3,13 @@ const menuBtn = document.getElementById("menu-btn");
 const sidebar = document.getElementById("sidebar");
 const closeBtn = document.querySelector(".closebtn");
 
-// Store and restore sidebar state
-function saveSidebarState() {
-  const expandedSections = [];
-  document.querySelectorAll('.sidebar-section.open').forEach(section => {
-    expandedSections.push(section.id);
-  });
-  
-  localStorage.setItem('sidebarExpandedSections', JSON.stringify(expandedSections));
-  localStorage.setItem('currentSection', getCurrentSection());
-}
-
-function restoreSidebarState() {
-  // Restore expanded sections
-  const expandedSections = JSON.parse(localStorage.getItem('sidebarExpandedSections') || '[]');
-  expandedSections.forEach(id => {
-    const section = document.getElementById(id);
-    if (section) {
-      section.classList.add('open');
-    }
-  });
-  
-  // Scroll to the last viewed position if available
-  const scrollPosition = localStorage.getItem('sidebarScrollPosition');
-  if (scrollPosition) {
-    setTimeout(() => {
-      sidebar.scrollTop = parseInt(scrollPosition);
-    }, 100);
-  }
-}
-
-function getCurrentSection() {
-  const content = document.getElementById("content").innerHTML;
-  // This is a simple way to determine the current section based on content
-  // You might need to enhance this based on your specific content structure
-  if (content.includes('StaffInfoIndividual')) return 'staffInfo';
-  if (content.includes('Email Password Reset')) return 'emailReset';
-  if (content.includes('Create New BRAC Email')) return 'createEmail';
-  if (content.includes('Rename BRAC Email')) return 'renameEmail';
-  if (content.includes('Add to Email Group')) return 'addToGroup';
-  if (content.includes('Backup Support During Leave')) return 'leaveBackup';
-  if (content.includes('Laptop Warranty Complain Email')) return 'complainEmail';
-  if (content.includes('Whatsapp DCS Support Format')) return 'whatsappDcsSupportFormat';
-  if (content.includes('Bandwidth Upgradation Request Format')) return 'bandwidthUpgradation';
-  if (content.includes('Request for Resolution of Cellular Network Issue')) return 'resolutionCellularNetwork';
-  if (content.includes('Request to Approve Travel Allowance Bill')) return 'travellingBillFormat';
-  if (content.includes('Request for Travel Approval')) return 'travellingApprovalFormat';
-  if (content.includes('About MFTech Assistant')) return 'about';
-  if (content.includes('CRM Message Format')) return 'crmMessageFormat';
-  if (content.includes('contacts-container')) return 'contacts';
-  if (content.includes('zonal-reports-container')) return 'zonalReports';
-  if (content.includes('central-reports-container')) return 'centralReports';
-  if (content.includes('downloads-section')) return 'downloads';
-  return 'home';
-}
-
-// Open sidebar with preserved state
+// Open sidebar
 menuBtn.addEventListener("click", () => {
   sidebar.classList.add("open");
-  restoreSidebarState();
 });
 
-// Close sidebar with state preservation
+// Close sidebar
 closeBtn.addEventListener("click", () => {
-  localStorage.setItem('sidebarScrollPosition', sidebar.scrollTop);
-  saveSidebarState();
   sidebar.classList.remove("open");
 });
 
@@ -77,11 +19,6 @@ sidebar.querySelectorAll("a[data-section]").forEach(link => {
     e.preventDefault();
     const section = link.getAttribute("data-section");
     loadContent(section);
-    
-    // Save state before closing
-    localStorage.setItem('sidebarScrollPosition', sidebar.scrollTop);
-    saveSidebarState();
-    
     sidebar.classList.remove("open"); // close sidebar after click
   });
 });
@@ -90,26 +27,10 @@ sidebar.querySelectorAll("a[data-section]").forEach(link => {
 document.addEventListener("click", (e) => {
   const sidebarOpen = sidebar.classList.contains("open");
   if (sidebarOpen && !sidebar.contains(e.target) && e.target !== menuBtn) {
-    localStorage.setItem('sidebarScrollPosition', sidebar.scrollTop);
-    saveSidebarState();
     sidebar.classList.remove("open");
   }
 });
 
-// Add event listeners to section headers to track expanded/collapsed state
-document.addEventListener("DOMContentLoaded", () => {
-  // Add click handlers to all section headers
-  document.querySelectorAll('.sidebar-section-header').forEach(header => {
-    header.addEventListener('click', () => {
-      // Save state after a short delay to ensure the class has been toggled
-      setTimeout(saveSidebarState, 50);
-    });
-  });
-  
-  // Load initial content
-  const lastSection = localStorage.getItem('currentSection') || 'home';
-  loadContent(lastSection);
-});
 
 // Dark/Light Mode
 const modeToggle = document.getElementById("modeToggle");
@@ -124,10 +45,9 @@ modeToggle.addEventListener("click", () => {
   modeToggle.textContent = document.body.classList.contains("dark-mode") ? "☀️" : "🌙";
 });
 
-// Load Content Function (unchanged from your original code)
+// Load Content Function
 function loadContent(page) {
   const content = document.getElementById("content");
-  localStorage.setItem('currentSection', page);
   
   if (page === "home") {
   const content = document.getElementById("content");
@@ -574,21 +494,28 @@ The travel approval application has been attached for your kind review and appro
       <h3>About MFTech Assistant</h3>
       <hr>
       <p><b>App Version:</b> 1.0.0</p>
+<p><b>Email:</b> to.gopalgonj@brac.net</p>
       <p><b>Changelog:</b></p>
-      <p>26 August 2025</p>
+<p>09 September 2025</p>
       <ul style="margin-left: 20px;">
-<li>v1.0.0 – Initial release.</li>
-        <li>v1.0.0 – Added Staff Info section.</li>
-        <li>v1.0.0 – Added several email format.</li>
-        <li>v1.0.0 – Added frequently used message format.</li>
+<li>Added various reporting.</li>
+        <li>Added various email format.</li>
       </ul>
 <br>
 <p>07 September 2025</p>
       <ul style="margin-left: 20px;">
-<li>v1.0.0 – Fixed copy format in desktop and mobile.</li>
-        <li>v1.0.0 – Added contacts information and search option.</li>
-        <li>v1.0.0 – Added CRM message format.</li>
-        <li>v1.0.0 – Various design changes.</li>
+<li>Fixed copy format in desktop and mobile.</li>
+        <li>Added contacts information and search option.</li>
+        <li>Added CRM message format.</li>
+        <li>Various design changes.</li>
+      </ul>
+<br>
+      <p>26 August 2025</p>
+      <ul style="margin-left: 20px;">
+<li>Initial release.</li>
+        <li>Added Staff Info section.</li>
+        <li>Added several email format.</li>
+        <li>Added frequently used message format.</li>
       </ul>
     </div>
   `;
@@ -596,7 +523,7 @@ The travel approval application has been attached for your kind review and appro
     else if (page === "crmMessageFormat") { 
   content.innerHTML = `
     <div class="card">
-      <h3>Whatsapp DCS Support Format</h3> 
+      <h3>CRM Support Format</h3> 
       <hr> 
       <p><b>Message Body:</b></p> 
       <pre id="crmMessageFormatBody">1. Name: 
